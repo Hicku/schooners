@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+.bg-dark {
+  background-color: #242322;
+}
+
+bg-light {
+  color: #f8f9fa;
+}
+
+text-light {
+  color: #f8f9fa;
+}
+
+ul,
+a {
+  list-style-type: none;
+  text-decoration: none;
+}
