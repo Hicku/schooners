@@ -1,23 +1,20 @@
 body {
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa;
+  background-color: #242322;
+  letter-spacing: 3px;
 }
 
-.bg-dark {
+.bg-main {
   background-color: #242322;
 }
 
-bg-light {
-  color: #f8f9fa;
+.bg-main-light {
+  background-color: #504f4e;
 }
 
-text-light {
-  color: #f8f9fa;
+.text-light {
+  color: #eeece5 !important;
 }
 
-ul,
-a {
-  list-style-type: none;
-  text-decoration: none;
+.text-success {
+  color: #b9a250 !important;
 }
