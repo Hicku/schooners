@@ -6,3 +6,12 @@
   background-size: cover;
   background-position-y: 45%;
 }
+
+.homepage-text {
+  font-size: 1.5rem;
+}
+
+.menu-item {
+  font-size: 1.3rem;
+  margin: 1rem;
+}

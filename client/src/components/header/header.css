@@ -2,9 +2,31 @@
   font-size: 6rem; /* Example larger size */
 }
 
-@media (max-width: 1024px) {
-  body {
-    font-size: 16px;
-    background-color: lightblue;
+.navbar-toggler-icon {
+  background-color: transparent; /* Ensure background is transparent */
+}
+
+.header-link:hover {
+  color: #b9a250 !important;
+}
+
+@media (min-width: 900px) {
+  .position-absolute-lg {
+    position: absolute;
+  }
+  .middle-margin-nav-right {
+    margin-right: 15rem;
+  }
+
+  .middle-margin-nav-left {
+    margin-left: 15rem;
+  }
+
+  .end-margin-nav-right {
+    margin-right: 2rem;
+  }
+
+  .end-margin-nav-left {
+    margin-left: 2rem;
   }
 }
