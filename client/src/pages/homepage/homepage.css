@@ -12,6 +12,15 @@
 }
 
 .menu-item {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin: 1rem;
+}
+
+.menu-tab {
+  transition: color 0.4s ease-in-out;
+}
+
+.menu-tab:hover {
+  color: #b9a250 !important;
+  cursor: pointer;
 }
