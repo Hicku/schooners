@@ -1,104 +1,58 @@
 import React from "react";
+import { useState } from "react";
+import MenuDropdown from "../menuDropdown/MenuDropdown";
 
 function Drink({ switchMenu, setSwitchMenu }) {
-  const draft = [
-    {
-      name: "ATTIC BREW: FORWARD",
-      type: "LAGER",
-      abv: "ABV: 4.2%",
-    },
-    {
-      name: "ATTIC BREW: SIGNALS",
-      type: "INDIAN PALE ALE",
-      abv: "ABV: 5.6%",
-    },
-    {
-      name: "GLASSHOUSE: BRINGING SESHY BACK",
-      type: "SESSION ALE",
-      abv: "ABV: 3.5%",
-    },
-    {
-      name: "NOTHING BOUND: DANDELION",
-      type: "PALE ALE",
-      abv: "ABV: 4.2%",
-    },
-    {
-      name: "NAPTON CIDERY: N6",
-      type: "FRESH MEDIUM DRY CIDER",
-      abv: "ABV: 4.6%",
-    },
-    {
-      name: "LEVIATHON: VOODOO PEOPLE",
-      type: "DRY IRISH STOUT",
-      abv: "ABV: 4.9%",
-    },
-  ];
+  const drinkCategories = {
+    draft: [
+      { name: "ATTIC BREW: FORWARD", price: "5.50", abv: "ABV: 4.2%" },
+      { name: "ATTIC BREW: SIGNALS", price: "5.80", abv: "ABV: 5.6%" },
+      {
+        name: "GLASSHOUSE: BRINGING SESHY BACK",
+        price: "5.30",
+        abv: "ABV: 3.5%",
+      },
+      { name: "NOTHING BOUND: DANDELION", price: "5.60", abv: "ABV: 4.2%" },
+      { name: "NAPTON CIDERY: N6", price: "5.60", abv: "ABV: 4.6%" },
+      { name: "LEVIATHON: VOODOO PEOPLE", price: "5.50", abv: "ABV: 4.9%" },
+    ],
+    whiteWine: [
+      { name: "CHARDONNAY", price: "6.80" },
+      { name: "SAUVIGNON BLANC", price: "7.20" },
+      { name: "RIESLING", price: "6.50" },
+      { name: "PINOT GRIGIO", price: "7.00" },
+    ],
+    redWine: [
+      { name: "CABERNET SAUVIGNON", price: "7.80" },
+      { name: "PINOT NOIR", price: "7.00" },
+      { name: "MERLOT", price: "6.50" },
+      { name: "ZINFANDEL", price: "7.20" },
+    ],
+    cocktails: [
+      { name: "MARGARITA", price: "9.00" },
+      { name: "MOJITO", price: "9.50" },
+      { name: "MARTINI", price: "8.50" },
+      { name: "OLD FASHIONED", price: "8.50" },
+      { name: "PIÑA COLADA", price: "8.70" },
+      { name: "NEGRONI", price: "8.50" },
+    ],
+  };
 
-  const wineList = [
-    {
-      name: "CABERNET",
-      year: 2018,
-      region: "NAPA VALLEY, USA",
-      type: "RED",
-    },
-    {
-      name: "PINOT NOIR",
-      year: 2020,
-      region: "BURGUNDY, FRANCE",
-      type: "RED",
-    },
-    {
-      name: "CHARDONNAY",
-      year: 2019,
-      region: "SONOMA COUNTY, USA",
-      type: "WHITE",
-    },
-    {
-      name: "SAUVIGNON BLANC",
-      year: 2021,
-      region: "MARLBOROUGH, NEW ZEALAND",
-      type: "WHITE",
-    },
-    {
-      name: "PROVENCE ROSÉ",
-      year: 2020,
-      region: "PROVENCE, FRANCE",
-      type: "ROSÉ",
-    },
-  ];
+  const [openDrinksState, setOpenDrinksState] = useState({
+    draft: { isOpen: false, plusMinus: false },
+    whiteWine: { isOpen: false, plusMinus: false },
+    redWine: { isOpen: false, plusMinus: false },
+    cocktails: { isOpen: false, plusMinus: false },
+  });
 
-  const cocktailList = [
-    {
-      name: "MARGARITA",
-      ingredients: ["TEQUILA", "TRIPLE SEC", "LIME JUICE", "SALT"],
-      type: "COCKTAIL",
-    },
-    {
-      name: "MOJITO",
-      ingredients: ["WHITE RUM", "SUGAR", "LIME JUICE", "MINT", "SODA WATER"],
-      type: "COCKTAIL",
-    },
-    {
-      name: "MARTINI",
-      ingredients: ["GIN", "DRY VERMOUTH", "OLIVE OR LEMON TWIST"],
-      type: "COCKTAIL",
-    },
-    {
-      name: "OLD FASHIONED",
-      ingredients: ["BOURBON", "SUGAR", "ANGOSTURA BITTERS", "ORANGE PEEL"],
-      type: "COCKTAIL",
-    },
-    {
-      name: "PIÑA COLADA",
-      ingredients: ["RUM", "COCONUT CREAM", "PINEAPPLE JUICE"],
-      type: "COCKTAIL",
-    },
-    {
-      name: "NEGRONI",
-      ingredients: ["GIN", "CAMPARI", "SWEET VERMOUTH"],
-      type: "COCKTAIL",
-    },
-  ];
+  const toggleCategory = (category) => {
+    setOpenDrinksState((prevState) => {
+      return {
+        ...prevState,
+        [category]: !prevState[category],
+      };
+    });
+  };
 
   const switchMenuHandler2 = () => {
     setSwitchMenu("food");
@@ -110,91 +64,36 @@ function Drink({ switchMenu, setSwitchMenu }) {
 
   return (
     <div>
-      <section className="container-fluid mt-5 pt-5 text-light">
+      <section className="container-fluid mt-4 pt-4 text-light">
         <div className="row">
           <div className="col">
             <div className="d-flex justify-content-center align-items-center flex-column">
-              <h2 className="mb-5 mt-4 text-center">WHAT'S ON OFFER</h2>
+              <h2 className="mb-5 mt-4 text-center fs-1">WHAT'S ON OFFER</h2>
               <div>
                 <ul className="row list-unstyled fs-2">
-                  <li className="col menu-tab" onClick={onClickFood}>
+                  <li
+                    className="col menu-tab text-success"
+                    onClick={onClickFood}
+                  >
                     Food
                   </li>
-                  <li className="col menu-tab text-decoration-underline">
+                  <li className="col menu-tab text-success text-decoration-underline">
                     Drink
                   </li>
                 </ul>
               </div>
-              <div></div>
-              <h3 className="my-5 fs-3 text-success">DRAFT</h3>
-              <div className="container-fluid d-flex justify-content-center align-items-center">
-                <div className="row w-75">
-                  <div className="col d-flex justify-content-center">
-                    <ul
-                      className="menu-item list-unstyled text-center"
-                      style={{ fontFamily: "Roboto, serif" }}
-                    >
-                      {draft.map((item) => (
-                        <li className="my-2">{item.name}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="col d-flex justify-content-center">
-                    <ul
-                      className="menu-item list-unstyled text-center"
-                      style={{ fontFamily: "Roboto, serif" }}
-                    >
-                      {draft.map((item) => (
-                        <li className="my-2">{item.type}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="col d-flex justify-content-center">
-                    <ul
-                      className="menu-item list-unstyled text-center"
-                      style={{ fontFamily: "Roboto, serif" }}
-                    >
-                      {draft.map((item) => (
-                        <li className="my-2">{item.abv}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div className="row d-flex">
-                <div className="col me-5 pe-5">
-                  <h3
-                    className="mt-5 mb-5 fs-3 text-success text-center"
-                    style={{ fontFamily: "Roboto, serif" }}
-                  >
-                    WINE
-                  </h3>
-                  <ul
-                    className="list-unstyled text-center"
-                    style={{ fontFamily: "Roboto, serif" }}
-                  >
-                    {wineList.map((item) => (
-                      <li className="menu-item">{item.name}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="col ms-5 ps-5">
-                  <h3
-                    className="mt-5 mb-5 fs-3 text-success text-center"
-                    style={{ fontFamily: "Roboto, serif" }}
-                  >
-                    COCKTAILS
-                  </h3>
-                  <ul
-                    className="list-unstyled text-center"
-                    style={{ fontFamily: "Roboto, serif" }}
-                  >
-                    {cocktailList.map((item) => (
-                      <li className="menu-item">{item.name}</li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="container mt-5">
+                {Object.keys(drinkCategories).map((category) => {
+                  return (
+                    <MenuDropdown
+                      key={category}
+                      title={category.toLocaleUpperCase()}
+                      items={drinkCategories[category]}
+                      isOpen={openDrinksState[category]}
+                      toggleCategory={() => toggleCategory(category)}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>

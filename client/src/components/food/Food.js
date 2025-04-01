@@ -26,17 +26,20 @@ function Food({ switchMenu, setSwitchMenu }) {
 
   return (
     <div>
-      <section className="container-fluid mt-5 pt-5 text-light">
+      <section className="container-fluid mt-3 pt-4 text-light">
         <div className="row">
           <div className="col">
             <div className="d-flex justify-content-center align-items-center flex-column">
               <h2 className="mb-5 mt-4 text-center">WHAT'S ON OFFER</h2>
               <div>
                 <ul className="row list-unstyled fs-2">
-                  <li className="col menu-tab text-decoration-underline">
+                  <li className="col menu-tab text-success text-decoration-underline">
                     Food
                   </li>
-                  <li className="col menu-tab" onClick={onClickDrink}>
+                  <li
+                    className="col text-success menu-tab"
+                    onClick={onClickDrink}
+                  >
                     Drink
                   </li>
                 </ul>

@@ -1,0 +1,8 @@
+.follow-img {
+  height: 40vh;
+  width: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-y: 45%;
+}

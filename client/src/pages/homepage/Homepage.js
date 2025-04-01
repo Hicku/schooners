@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import { useState } from "react";
 import Drink from "../../components/drink/Drink";
 import Food from "../../components/food/Food";
+import FollowUs from "../../components/followUs/FollowUs";
 
 function Homepage() {
   const [switchMenu, setSwitchMenu] = useState("food");
@@ -55,6 +56,9 @@ function Homepage() {
             </div>
           </div>
         </div>
+        <div className="d-flex justify-content-center mt-5">
+          <hr className="border-light mt-5 w-50"></hr>
+        </div>
       </section>
       {switchMenu === "food" ? (
         <Food switchMenu={switchMenu} setSwitchMenu={setSwitchMenu} />
@@ -62,7 +66,10 @@ function Homepage() {
         <Drink switchMenu={switchMenu} setSwitchMenu={setSwitchMenu} />
       )}
 
-      <section className="container-fluid bg-main-light"></section>
+      <div className="d-flex justify-content-center mt-5">
+        <hr className="border-light mt-3 w-50"></hr>
+      </div>
+      <FollowUs />
     </div>
   );
 }

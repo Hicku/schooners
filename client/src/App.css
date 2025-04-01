@@ -19,6 +19,10 @@ body {
   color: #b9a250 !important;
 }
 
+.border-success {
+  border-color: #b9a250 !important;
+}
+
 .bg-success {
   background-color: #b9a250 !important;
 }
