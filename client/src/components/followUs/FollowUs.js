@@ -15,9 +15,9 @@ function FollowUs() {
           <h2 className="mb-2 mt-5 fs-1 ms-5 ps-5">JOIN US ON SOCIAL MEDIA</h2>
           <h3 className=" ms-5 ps-5">SEE WHAT'S GOING ON AT SCHOONERS</h3>
         </div>
-        <div className="col">
+        <div className="col mt-5 pt-3 text-center">
           INSTAGRAM
-          <VscArrowRight className="text-success" />
+          <VscArrowRight className="text-success mb-2 ms-2" />
         </div>
       </div>
       <div className="row d-flex justify-content-center align-items-center mt-5 mb-5">

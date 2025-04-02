@@ -56,9 +56,7 @@ function Homepage() {
             </div>
           </div>
         </div>
-        <div className="d-flex justify-content-center mt-5">
-          <hr className="border-light mt-5 w-50"></hr>
-        </div>
+        <div className="d-flex justify-content-center mt-5"></div>
       </section>
       {switchMenu === "food" ? (
         <Food switchMenu={switchMenu} setSwitchMenu={setSwitchMenu} />
@@ -66,9 +64,7 @@ function Homepage() {
         <Drink switchMenu={switchMenu} setSwitchMenu={setSwitchMenu} />
       )}
 
-      <div className="d-flex justify-content-center mt-5">
-        <hr className="border-light mt-3 w-50"></hr>
-      </div>
+      <div className="d-flex justify-content-center mt-5"></div>
       <FollowUs />
     </div>
   );

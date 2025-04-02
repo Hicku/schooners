@@ -5,16 +5,16 @@ import MenuDropdown from "../menuDropdown/MenuDropdown";
 function Drink({ switchMenu, setSwitchMenu }) {
   const drinkCategories = {
     draft: [
-      { name: "ATTIC BREW: FORWARD", price: "5.50", abv: "ABV: 4.2%" },
-      { name: "ATTIC BREW: SIGNALS", price: "5.80", abv: "ABV: 5.6%" },
+      { name: "FORWARD LAGER", price: "5.50", abv: "ABV: 4.2%" },
+      { name: "SIGNALS IPA", price: "5.80", abv: "ABV: 5.6%" },
       {
-        name: "GLASSHOUSE: BRINGING SESHY BACK",
+        name: "BRINGING SESHY BACK",
         price: "5.30",
         abv: "ABV: 3.5%",
       },
-      { name: "NOTHING BOUND: DANDELION", price: "5.60", abv: "ABV: 4.2%" },
+      { name: "DANDELION IPA", price: "5.60", abv: "ABV: 4.2%" },
       { name: "NAPTON CIDERY: N6", price: "5.60", abv: "ABV: 4.6%" },
-      { name: "LEVIATHON: VOODOO PEOPLE", price: "5.50", abv: "ABV: 4.9%" },
+      { name: "VOODOO PEOPLE", price: "5.50", abv: "ABV: 4.9%" },
     ],
     whiteWine: [
       { name: "CHARDONNAY", price: "6.80" },
@@ -39,10 +39,10 @@ function Drink({ switchMenu, setSwitchMenu }) {
   };
 
   const [openDrinksState, setOpenDrinksState] = useState({
-    draft: { isOpen: false, plusMinus: false },
-    whiteWine: { isOpen: false, plusMinus: false },
-    redWine: { isOpen: false, plusMinus: false },
-    cocktails: { isOpen: false, plusMinus: false },
+    draft: false,
+    whiteWine: false,
+    redWine: false,
+    cocktails: false,
   });
 
   const toggleCategory = (category) => {
@@ -71,18 +71,15 @@ function Drink({ switchMenu, setSwitchMenu }) {
               <h2 className="mb-5 mt-4 text-center fs-1">WHAT'S ON OFFER</h2>
               <div>
                 <ul className="row list-unstyled fs-2">
-                  <li
-                    className="col menu-tab text-success"
-                    onClick={onClickFood}
-                  >
+                  <li className="col menu-tab" onClick={onClickFood}>
                     Food
                   </li>
-                  <li className="col menu-tab text-success text-decoration-underline">
+                  <li className="col menu-tab text-decoration-underline">
                     Drink
                   </li>
                 </ul>
               </div>
-              <div className="container mt-5">
+              <div className="container mt-5 pt-5 border-top border-success">
                 {Object.keys(drinkCategories).map((category) => {
                   return (
                     <MenuDropdown
